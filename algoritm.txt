@@ -1,0 +1,26 @@
+Start                                                                                                     Step 1-> In function int waitingtime(int proc[], int n, int burst_time[], int wait_time[])
+   Set wait_time[0] = 0
+   Loop For i = 1 and i < n and i++
+      Set wait_time[i] = burst_time[i-1] + wait_time[i-1]
+   End For
+Step 2-> In function int turnaroundtime( int proc[], int n, int burst_time[], int wait_time[], int tat[])
+   Loop For  i = 0 and i < n and i++
+      Set tat[i] = burst_time[i] + wait_time[i]
+   End For
+Step 3-> In function int avgtime( int proc[], int n, int burst_time[])
+   Declare and initialize wait_time[n], tat[n], total_wt = 0, total_tat = 0;
+   Call waitingtime(proc, n, burst_time, wait_time)
+   Call turnaroundtime(proc, n, burst_time, wait_time, tat)
+   Loop For  i=0 and i<n and i++
+      Set total_wt = total_wt + wait_time[i]
+      Set total_tat = total_tat + tat[i]
+      Print process number, burstime wait time and turnaround time
+   End For
+   Print "Average waiting time =i.e. total_wt / n
+   Print "Average turn around time = i.e. total_tat / n
+Step 4-> In int main()
+   Declare the input int proc[] = { 1, 2, 3}
+   Declare and initialize n = sizeof proc / sizeof proc[0]
+   Declare and initialize burst_time[] = {10, 5, 8}
+   Call avgtime(proc, n, burst_time)
+Stop
